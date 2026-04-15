@@ -16,8 +16,7 @@ export HBLDR_DEFAULT_3DSX_TID ?= 000400000D921E00
 export HBLDR_DEFAULT_3DSX_TITLE_NAME ?= "hblauncher_loader"
 
 NAME		:=	$(notdir $(CURDIR))
-REVISION	:=	$(shell git describe --tags --match v[0-9]* --abbrev=8 | sed 's/-[0-9]*-g/-/')
-
+REVISION	:=	$(shell git describe --tags --match v[0-9]* --abbrev=8 | sed 's/-[0-
 SUBFOLDERS	:=	sysmodules arm11 arm9 k11_extension
 
 .PHONY:	all release clean $(SUBFOLDERS)
@@ -40,9 +39,16 @@ boot.firm:	$(SUBFOLDERS)
 	-A 0x18180000 -C XDMA XDMA NDMA XDMA
 	@echo built... $(notdir $@)
 
+# Use a local hbmenu.zip if present, otherwise download the latest release.
+# Place a pre-downloaded hbmenu.zip in the repo root to skip the network request.
 hbmenu.zip:
-	@curl -sSfL $(shell curl -s https://api.github.com/repos/devkitPro/3ds-hbmenu/releases/latest | grep 'browser_' | cut -d\" -f4) -o $@
-	@echo downloaded... $(notdir $@)
+	@if [ -f hbmenu.zip.local ]; then \
+		cp hbmenu.zip.local $@; \
+		echo "using local hbmenu.zip"; \
+	else \
+		curl -sSfL $(shell curl -s https://api.github.com/repos/devkitPro/3ds-hbmenu/releases/latest | grep 'browser_' | cut -d\" -f4) -o $@; \
+		echo downloaded... $(notdir $@); \
+	fi
 
 $(SUBFOLDERS):
 	@$(MAKE) -C $@ all
