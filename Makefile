@@ -41,6 +41,7 @@ boot.firm:	$(SUBFOLDERS)
 
 # Use a local hbmenu.zip if present, otherwise download the latest release.
 # Place a pre-downloaded hbmenu.zip in the repo root to skip the network request.
+# Note: I keep a local copy in hbmenu.zip.local to avoid hitting the GitHub API repeatedly.
 hbmenu.zip:
 	@if [ -f hbmenu.zip.local ]; then \
 		cp hbmenu.zip.local $@; \
