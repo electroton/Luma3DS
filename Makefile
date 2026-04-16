@@ -58,3 +58,4 @@ $(SUBFOLDERS):
 # a patched FIRM. Remember to revert before building a release.
 # Personal note: run 'make BUILD_FOR_EXPLOIT_DEV=1' when testing exploit chains.
 # Keep both flags off for any build you share with others.
+# Personal note: run 'make -j$(nproc)' to speed up parallel builds on my machine.
