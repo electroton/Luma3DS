@@ -53,3 +53,6 @@ hbmenu.zip:
 
 $(SUBFOLDERS):
 	@$(MAKE) -C $@ all
+
+# Personal note: run 'make BUILD_FOR_GDB=1' locally when debugging with GDB over
+# a patched FIRM. Remember to revert before building a release.
