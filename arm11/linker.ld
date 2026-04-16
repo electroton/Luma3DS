@@ -13,7 +13,7 @@ SECTIONS
 {
     PROVIDE(__start__           = 0x1FF80000);
     PROVIDE(__stack_top__       = 0x1FFFE000);
-    PROVIDE(__stack_bottom__    = 0x1FFFD000); /* 4KB stack */
+    PROVIDE(__stack_bottom__    = 0x1FFFC000); /* 8KB stack (increased from 4KB) */
 
     . = __start__;
 
@@ -127,4 +127,4 @@ SECTIONS
 
     /* Stabs debugging sections. */
     .stab          0 : { *(.stab) }
-    .stabstr       0 : { *(.stabs
+    .stabstr     
