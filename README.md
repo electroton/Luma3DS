@@ -8,6 +8,8 @@
 ![Boot menu screenshot](img/boot_menu_v1321.png)
 ![Rosalina menu screenshot](img/rosalina_menu_v1321.png)
 
+> **Personal fork** — used for learning and tinkering. For the official release, see [LumaTeam/Luma3DS](https://github.com/LumaTeam/Luma3DS).
+
 ## Description
 **Luma3DS** patches and reimplements significant parts of the system software running on all models of the Nintendo 3DS family of consoles. It aims to greatly improve the user experience and support the 3DS far beyond its end-of-life. Features include:
 
@@ -38,4 +40,4 @@ Once boot9strap has been installed, simply download the [latest release archive]
 
 **The chainloader menu** is accessed by pressing <kbd>Start</kbd> at boot, or from the configuration menu. Payloads are expected to be located in `/luma/payloads` with the `.firm` extension; if there is only one such payload, the aforementioned selection menu will be skipped. Hotkeys can be assigned to payload, for example `x_test.firm` will be chainloaded when <kbd>X</kbd> is pressed at boot.
 
-**The overlay menu, Rosalina**, has a default button combination: <kbd>L+Down+Select</kbd>. For greater flexibility, most Rosalina menu settings aren't saved
+**The overlay menu, Rosalina**, has a default button combination: <kbd>L+Down+Select</kbd>. For greater flexibility, most Rosalina menu settings aren't save
